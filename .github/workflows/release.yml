@@ -25,5 +25,5 @@ jobs:
           context: .
           push: true
           tags: lwch/darwin-crosscompiler:${{ steps.get_version.outputs.VERSION }}
-          build-args:
-            - "toolchain_version=${{ steps.get_version.outputs.VERSION }}"
+          build-args: |
+            toolchain_version=${{ steps.get_version.outputs.VERSION }}
