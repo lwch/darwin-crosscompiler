@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: [ master ]
+    tags: [ '*.*' ]
 
 jobs:
   release:
@@ -17,8 +17,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: lwch/darwin-crosscompiler:latest
+          tags: lwch/darwin-crosscompiler:${{ steps.get_version.outputs.VERSION }}
+          build-args:
+            - toolchain_version=${{ steps.get_version.outputs.VERSION }}
