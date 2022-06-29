@@ -1,6 +1,8 @@
 name: release
 
 on:
+  schedule:
+    - cron: '10 0 * * *'
   push:
     tags: [ '*.*' ]
 
