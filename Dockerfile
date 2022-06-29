@@ -15,4 +15,4 @@ RUN apt-get update && apt-get upgrade -y && \
 
 ENV PATH=$PATH:/usr/local/clang/bin:/usr/local/toolchain/bin
 
-ENTRYPOINT /bin/bash
+CMD /bin/bash
