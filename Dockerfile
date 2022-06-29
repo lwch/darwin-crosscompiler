@@ -10,7 +10,8 @@ ARG toolchain_download_url="https://www.dropbox.com/s/yl3h8i1lwwr0u5u/toolchain.
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl && \
     curl -L ${toolchain_download_url}|tar -xz -C /usr/local && \
-    curl -L ${clang_download_url}|tar -xz -C /usr/local
+    curl -L ${clang_download_url}|tar -xz -C /usr/local && \
+    apt-get clean
 
 ENV PATH=$PATH:/usr/local/clang/bin:/usr/local/toolchain/bin
 
