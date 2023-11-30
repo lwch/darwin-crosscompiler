@@ -1,11 +1,8 @@
-ARG toolchain_version="11.3"
-
 FROM debian:stable-slim
 
 # build from https://github.com/tpoechtrager/osxcross
-ARG toolchain_version
-ARG clang_download_url="https://www.dropbox.com/s/t2mc6x7yabt57jz/clang.tar.gz"
-ARG toolchain_download_url="https://www.dropbox.com/s/yl3h8i1lwwr0u5u/toolchain.${toolchain_version}.tar.gz"
+ARG clang_download_url="https://www.dropbox.com/scl/fi/gow9a8o94sz2rd6i78d1g/clang.tar.gz?rlkey=zmr4ab1xmprfslngy2l0lh73p&dl=0"
+ARG toolchain_download_url="https://www.dropbox.com/scl/fi/ds4r3dw25p0s7h9jwfr3b/toolchain.12.4.tar.gz?rlkey=qeux5ifie1r89tj9qa1pt6w00&dl=0"
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl libxml2 && \
